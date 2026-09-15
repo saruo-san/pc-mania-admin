@@ -2,7 +2,6 @@
 
 ```mermaid
 flowchart LR
-
     Cliente["Cliente"]
     Administrador["Administrador"]
 
@@ -37,21 +36,17 @@ flowchart LR
 
     Cliente --> Tienda
     Administrador --> Panel
-
     Tienda --> TiendaAuth
     TiendaAuth --> Cognito
     Cognito --> Token
     Token --> TiendaCatalogo
     TiendaCatalogo --> TiendaApi
-
     Panel --> AdminAuth
     AdminAuth --> Cognito
     Token --> Inventario
     Inventario --> AdminApi
-
     TiendaApi -->|"GET /api/productos"| Spring
     AdminApi -->|"POST /api/productos"| Spring
-
     Spring --> Cors
     Cors --> Controller
     Controller --> Validation
@@ -65,7 +60,6 @@ flowchart LR
     classDef auth fill:#fff3cd,stroke:#e0a000,stroke-width:2px,color:#000
     classDef backend fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
     classDef error fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#000
-
     class Cliente,Administrador actor
     class Tienda,Panel,TiendaAuth,AdminAuth,TiendaCatalogo,Inventario,TiendaApi,AdminApi frontend
     class Cognito,Token auth
